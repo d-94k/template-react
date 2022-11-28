@@ -25,7 +25,7 @@ function App() {
           />
         ))}
       </Wrapper>
-      <Form />
+      <Form render={(item, link, price, des) => {setArr ((arr) => { return [...arr, {id: Date.now(), name: item, price: price, image: link, description: des}]})}} />
     </div>
   );
 }
