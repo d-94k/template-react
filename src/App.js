@@ -1,25 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import Header from './Layout/Header';
+import Items from './Components/UI/Items';
+import { DATA } from './Database';
+import Wrapper from './Components/UI/Wrapper';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+
+function App () {
+    const [arr, setArr] = useState (DATA);
+
+      return (
+          <div>
+            <Header />
+            <ul className="slider">
+                <li>slider</li>
+            </ul>
+            <Wrapper>
+                {arr.map(item => <Items key={item.id} name={item.name} price={item.price} image={item.image} />)}
+            </Wrapper>
+          </div>
+          
+      )
+    }
+
+
 
 export default App;
