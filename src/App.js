@@ -17,9 +17,10 @@ function App() {
   };
 
   const deleteLastForm = () => {
-    const arrayForm = Object.entries(form);
-    arrayForm.pop();
-    setArr([arrayForm]);
+    arr.pop();
+    console.log("arr", arr);
+
+    setArr([...arr]);
   };
   return (
     <div>

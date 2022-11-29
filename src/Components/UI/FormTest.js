@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const FormTest = (props) => {
+const FormTest = () => {
   const [form, setForm] = useState({
     name: "daniele",
     price: "1000€",
@@ -13,10 +13,7 @@ const FormTest = (props) => {
 
     setForm({ ...form, [e.target.id]: value });
   };
-  //   const itemValue = (e) => {
-  //     e.preventDefault();
-  //     props.render(itemName, itemLink, price, des);
-  //   };
+
   const addFormCard = (e) => {
     e.preventDefault();
     console.log(form);
