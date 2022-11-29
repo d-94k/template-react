@@ -38,24 +38,7 @@ function App() {
           />
         ))}
       </Wrapper>
-      {/* <FormTest
-        render={({ ...form }) => {
-          setArr((arr) => {
-            return [
-              ...arr,
-              {
-                id: Date.now(),
-                name: form.name,
-                price: form.price,
-                image: form.link,
-                description: form.des,
-              },
-            ];
-          });
-        }}
-      /> */}
-      {/*form context provider test */}
-
+      {/* start of form to pass in the card section */}
       <div className="form-test">
         <form onSubmit={addFormCard}>
           <label htmlFor="name">Enter name</label>
@@ -95,8 +78,8 @@ function App() {
           </button>
         </form>
       </div>
+      {/* end of form to pass in the card section */}
 
-      {/* end of form context provider test */}
       {/* <Form
         render={(item, link, price, des) => {
           const addedCard = {
