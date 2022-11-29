@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
-const Form = () => {
+const Form = (props) => {
   const [itemName, setItemName] = useState("");
   const [itemLink, setItemLink] = useState("");
   const [price, setPrice] = useState("");
   const [des, setDes] = useState("");
+
   const itemNameHandler = (e) => {
     setItemName(e.target.value);
   };
@@ -17,12 +18,11 @@ const Form = () => {
   const itemDesHandler = (e) => {
     setDes(e.target.value);
   };
+
   const itemValue = (e) => {
     e.preventDefault();
-    console.log(itemName);
-    console.log(itemLink);
-    console.log(price);
-    console.log(des);
+
+    props.render(itemName, itemLink, price, des);
   };
   return (
     <div>

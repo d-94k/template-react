@@ -1,17 +1,38 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { useState } from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+export const FormContext = React.createContext();
+const FormContextProvider = ({ children }) => {
+  const [form, setForm] = useState({
+    name: "daniele",
+    price: "1000€",
+    link: "my-link",
+    des: "add short des",
+  });
+
+  const trackValue = (e) => {
+    let value = e.target.value;
+
+    setForm({ ...form, [e.target.id]: value });
+  };
+  const addFormCard = (e) => {
+    e.preventDefault();
+    console.log(form);
+    //props.render({ ...form });
+  };
+  return (
+    <FormContext.Provider value={[form, trackValue, addFormCard]}>
+      {children}
+    </FormContext.Provider>
+  );
+};
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <FormContextProvider>
+      <App />
+    </FormContextProvider>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
