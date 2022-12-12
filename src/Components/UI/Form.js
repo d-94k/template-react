@@ -19,7 +19,13 @@ const Form = (props) => {
   };
   const itemValue = (e) => {
     e.preventDefault();
-    props.render(itemName, itemLink, price, des);
+    const obj = {
+      name: itemName,
+      price: price,
+      image: itemLink,
+      description: des
+    }
+    props.render(obj);
   };
   return (
     <div>
